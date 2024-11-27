@@ -24,6 +24,7 @@ import CancelPage from '../containers/pricing/cancel'
 import NotFound from '../containers/not-found'
 import CheckEmail from '../containers/checkEmail'
 import AcceptDeadline from '../containers/deadline'
+import HomePage from '../containers/home';
 
 const MyRouter = () => {
   return (
@@ -31,7 +32,7 @@ const MyRouter = () => {
       <Router>
         <Routes>
           <Route path='/' element={<PageLayout />}>
-            <Route index element={<LoginPage />} />
+            <Route index element={<HomePage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/checkemail/:token' element={<CheckEmail />} />

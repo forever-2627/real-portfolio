@@ -1,0 +1,90 @@
+// Importing Bootstrap's base
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+
+$primary-gradient-start: #ff8660;
+$primary-gradient-end: #9a33ff;
+$orange-gradient-start: #ff8660;
+$orange-gradient-end: #d5491d;
+$blue-gradient-start: #5badff;
+$blue-gradient-end: #1373d1;
+
+// Mixin to create gradient
+@mixin primary-gradient-text {
+  background: linear-gradient(
+    to right,
+    $primary-gradient-start,
+    $primary-gradient-end
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+// Use the mixin to apply the gradient to a class
+.primary-gradient-text {
+  @include primary-gradient-text;
+}
+
+@mixin orange-gradient-text {
+  background: linear-gradient(
+    to right,
+    $orange-gradient-start,
+    $orange-gradient-end
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+// Use the mixin to apply the gradient to a class
+.orange-gradient-text {
+  @include orange-gradient-text;
+}
+
+@mixin blue-gradient-text {
+  background: linear-gradient(
+    to right,
+    $blue-gradient-start,
+    $blue-gradient-end
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+// Use the mixin to apply the gradient to a class
+.blue-gradient-text {
+  @include blue-gradient-text;
+}
+
+.wave-text {
+  display: inline-block;
+  font-size: 24px;
+  overflow: hidden;
+}
+
+.wave-text span {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+/* Create wave effect using animation by adding delay */
+.wave-text span:hover {
+  transform: translateY(-10px);
+}
+
+
+
+// Import Bootstrap to apply customizations
+@import "../../node_modules/bootstrap/scss/bootstrap";
