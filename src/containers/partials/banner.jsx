@@ -5,11 +5,23 @@ import "aos/dist/aos.css";
 import BackLogo from "../../components/BackLogo";
 
 export default function Banner() {
+
+  const BANNER = {
+    photo: '',
+    skills: ["Full Stack Web Developer", "AI Engineer", "GIS Specialist"],
+    skillLogos: [
+      {source: 'img/tech/reactjs.png', top:'60%', left: '10%', width: '360px'},
+      {source: 'img/tech/openai.png', top:'5%', left: '60%'},
+      {source: 'img/tech/qgis.png', top:'25%', left: '70%', width: '320px'},
+      {source: 'img/tech/mapbox.png', top:'70%', left: '85%', width: '120px'}],
+    description: `Thank you for reading my profile!
+    I am a Full Stack Web Developer, and I am here to turn your idea into a product. With over 5 years of experience in this field, I 've started my journey as a freelancer. I look forward to your support and will give my best effort to your project.`
+  }
   const el = useRef(null);
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["Full Stack Web Developer", "AI Engineer", "GIS Specialist"],
+      strings: BANNER.skills,
       // Speed settings, try diffrent values untill you get good results
       startDelay: 300,
       typeSpeed: 50,
@@ -36,8 +48,7 @@ export default function Banner() {
     });
   }, []);
 
-  const text = `Thank you for reading my profile!
-  I am a Full Stack Web Developer, and I am here to turn your idea into a product. With over 5 years of experience in this field, I am now starting my journey as a freelancer. I look forward to your support and will give my best effort to your project.`;
+  const text = `${BANNER.description}`;
 
   const sentences = text.split("\n").map((sentence) => sentence.trim());
 
@@ -58,36 +69,15 @@ export default function Banner() {
 
   return (
     <header className="header position-relative">
-      <BackLogo
-        source={"img/tech/reactjs.png"}
-        top={"60%"}
-        left={"10%"}
-        width={"360px"}
+      {BANNER.skillLogos.map(item => {
+        return <BackLogo
+        source={item.source}
+        top={item.top}
+        left={item.left}
+        width={item.width ? item.width : ''}
         className={"rotate"}
       />
-
-      <BackLogo
-        source={"img/tech/openai.png"}
-        top={"5%"}
-        left={"60%"}
-        className={"rotate"}
-      />
-
-<BackLogo
-        source={"img/tech/qgis.png"}
-        top={"25%"}
-        left={"70%"}
-        className={"rotate"}
-        width={'320px'}
-      />
-
-<BackLogo
-        source={"img/tech/mapbox.png"}
-        top={"70%"}
-        left={"85%"}
-        className={"rotate"}
-        width={'120px'}
-      />
+      })}
       <div className="container-md">
         <div className="d-flex flex-column justify-content-between align-items-center gap-3 mt-6">
           <img
@@ -111,7 +101,7 @@ export default function Banner() {
           </h1>
           <p className="lead px-6 text-center wave-text">{waveText}</p>
           <div className="d-flex justify-content-center align-items-center gap-3">
-            <a href="#" className="btn btn-primary text-dark">
+            <a href="#" className="btn btn-primary text-white">
               GET IN TOUCH
             </a>
             <a href="#" className="btn btn-outline-primary text-white">
