@@ -81,7 +81,41 @@ $blue-gradient-end: #1373d1;
 
 /* Create wave effect using animation by adding delay */
 .wave-text span:hover {
-  transform: translateY(-10px);
+  transform: translateY(-3px);
+}
+
+.wave-char {
+  display: inline-block;
+  animation: wave 1s infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply the animation */
+.rotate {
+  animation: rotate 10s linear infinite; /* Adjust duration as needed */
+}
+
+/* Additional styling as per your design */
+.lead {
+  width: 100%; /* example */
+  /* Other desired styles */
 }
 
 

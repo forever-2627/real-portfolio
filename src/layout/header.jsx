@@ -10,6 +10,7 @@ export default function Header() {
   const location = useLocation();
   const menuRef = useRef(null);
   const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const [ isMobile, setIsMobile ] = useState(false);
   const [ isMenu, setIsMenu ] = useState(false);
@@ -23,14 +24,24 @@ export default function Header() {
     }
   };
 
-  document.addEventListener('click', handleClickOutsideMenu);
-
-  return () => {
-    document.removeEventListener('click', handleClickOutsideMenu);
-  };
-
   }, [location]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
   const handleLogout = () => {
     setIsMenu(false);
     logout()
@@ -43,11 +54,12 @@ export default function Header() {
 
 
   return (
-    <nav className="navbar navbar-expand-lg sticky-top navbar-dark">
+    <nav className={`navbar navbar-expand-lg sticky-top ${isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
       <div className="container">
-        <a className="navbar-brand" href="#">
-          <img src={`/img/logo.png`} className='nav-logo'/>
-        </a>
+        <Link className="navbar-brand" to="/">
+          <img src="/img/logo.png" className="nav-logo" alt="Logo" />
+        </Link>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -59,22 +71,33 @@ export default function Header() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="#">Home</a>
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#solutions">Projects</a>
+              <Link className="nav-link" to="/projects">
+                Projects
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#details">Blogs</a>
+              <Link className="nav-link" to="/blogs">
+                Blogs
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#details">About</a>
+              <Link className="nav-link" to="/about">
+                About
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#expertise">Contact</a>
+              <Link className="nav-link" to="/contact">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>

@@ -5,7 +5,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 const Testimonials = () => {
   return (
     <section id="testimonials" className="mt-6 position-relative">
-      <div className="container">
+      <div className="container position-relative">
         <div className="row text-center">
           <h1 className="mb-2 blue-gradient-text fw-bold">TESTIMONIALS</h1>
         </div>

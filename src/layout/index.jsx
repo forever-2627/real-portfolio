@@ -6,7 +6,7 @@ const PageLayout = () => {
   return (
     <div>
       <Header />
-      <div className='bg-[#ccfff3] min-h-[calc(100vh-72px)]'>
+      <div className='bg-[#ccfff3] min-h-[calc(100vh-72px)] position-relative'>
         <Outlet />
       </div>
     </div>
