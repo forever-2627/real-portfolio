@@ -94,3 +94,24 @@ export const getRemainingTime = (item) => {
 
     return countdown - entireDiff;
 }
+
+// This can be in a separate file utility.js or within the component file
+export const getAosType = (direction) => {
+    switch(direction) {
+      case "top-left":
+        return "fade-up-left";
+      case "top":
+        return "fade-up";
+      case "top-right":
+        return "fade-up-right";
+      case "bottom-left":
+        return "fade-down-left";
+      case "bottom":
+        return "fade-down";
+      case "bottom-right":
+        return "fade-down-right";
+      default:
+        return "fade";  // Fallback animation
+    }
+  };
+  

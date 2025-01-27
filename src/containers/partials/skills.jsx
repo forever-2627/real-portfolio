@@ -4,46 +4,52 @@ import SkillCard from "../../components/SkillCard";
 const Skills = () => {
   const SKILLS = [
     {
-      source: "/img/tech/qgis.png",
+      source: "/img/tech/mapbox.png",
       title: "FULL STACK",
       description:
         "Objectively productivate interoperable process improvements after team building testing procedures.",
       backColor: "#B4D8E7 ",
+      direction: 'top-left'
     },
     {
-      source: "/img/tech/qgis.png",
+      source: "/img/tech/mapbox.png",
       title: "FULL STACK",
       description:
         "Objectively productivate interoperable process improvements after team building testing procedures.",
       backColor: "#E3B7D2 ",
+      direction: 'top'
     },
     {
-      source: "/img/tech/qgis.png",
+      source: "/img/tech/mapbox.png",
       title: "FULL STACK",
       description:
         "Objectively productivate interoperable process improvements after team building testing procedures.",
       backColor: "#F2E6B1 ",
+      direction: 'top-right'
     },
     {
-      source: "/img/tech/qgis.png",
+      source: "/img/tech/mapbox.png",
       title: "FULL STACK",
       description:
         "Objectively productivate interoperable process improvements after team building testing procedures.",
       backColor: "#CBE6D7 ",
+      direction: 'bottom-left'
     },
     {
-      source: "/img/tech/qgis.png",
+      source: "/img/tech/mapbox.png",
       title: "FULL STACK",
       description:
         "Objectively productivate interoperable process improvements after team building testing procedures.",
       backColor: "#FAD4B1 ",
+      direction: 'bottom'
     },
     {
-      source: "/img/tech/qgis.png",
+      source: "/img/tech/mapbox.png",
       title: "FULL STACK",
       description:
         "Objectively productivate interoperable process improvements after team building testing procedures.",
       backColor: "#D0B7E6 ",
+      direction: 'bottom-right'
     },
   ];
 
@@ -67,6 +73,7 @@ const Skills = () => {
                 title={skill.title}
                 description={skill.description}
                 backColor={skill.backColor}
+                direction={skill.direction}
               />
             );
           })}

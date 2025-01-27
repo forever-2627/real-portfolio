@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import BackLogo from "../../components/BackLogo";
 
 export default function Banner() {
@@ -68,7 +67,7 @@ export default function Banner() {
   ));
 
   return (
-    <header className="header position-relative">
+    <header className="header position-relative" style={{height: '100vh'}}>
       {BANNER.skillLogos.map(item => {
         return <BackLogo
         source={item.source}

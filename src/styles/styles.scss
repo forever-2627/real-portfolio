@@ -39,14 +39,15 @@
 
 .photo-left {
   position: absolute;
-  top: -50%;
+  top: -30%;
   left: 3%;
+  z-index: -9;
 }
 
 .photo-right {
   position: absolute;
-  top: -40%;
-  right: 10%;
+  top: -10%;
+  right: 3%;
   z-index: -9;
 }
 
@@ -194,4 +195,27 @@
 .navbar-scrolled {
   background-color: rgba(0, 0, 0, 0.8);
   transition: background-color 0.3s ease;
+}
+
+.border-radius-4{
+  border-radius: 4px!important;
+}
+
+.skill-card{
+  cursor: pointer;
+}
+
+.portfolio-card{
+  background: #0c1427!important;
+  height: 500px;
+}
+
+.portfolio-img{
+  height: 360px;
+}
+
+.portfolio-content{
+  display: flex;
+  flex-direction: column;
+  height: 140px;
 }

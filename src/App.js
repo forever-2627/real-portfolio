@@ -7,6 +7,7 @@ import './styles/custom.scss';
 import './styles/bootstrap.scss';
 import './styles/styles.scss';
 import './styles/font-awesome.scss';
+import "aos/dist/aos.css";
 
 function App() {
   return (

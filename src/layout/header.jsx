@@ -54,7 +54,7 @@ export default function Header() {
 
 
   return (
-    <nav className={`navbar navbar-expand-lg sticky-top ${isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
+    <nav className={`navbar navbar-expand-lg sticky-top py-0 ${isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
       <div className="container">
         <Link className="navbar-brand" to="/">
           <img src="/img/logo.png" className="nav-logo" alt="Logo" />
