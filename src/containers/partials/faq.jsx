@@ -1,4 +1,34 @@
 import React from "react";
+import { Accordion, Card, Button } from 'react-bootstrap';
+
+const FAQS = [
+  {
+    id: 1,
+    question: "What is React?",
+    answer: "React is a JavaScript library for building user interfaces, maintained by Facebook and a community of individual developers and companies."
+  },
+  {
+    id: 2,
+    question: "How does React differ from Angular?",
+    answer: "React is a library focused on building the UI, while Angular is a full-fledged framework that provides more built-in functionalities like routing and form handling."
+  },
+  {
+    id: 3,
+    question: "What is state in React?",
+    answer: "State is an object that determines how a component renders and behaves. State can change over time, usually as a result of user actions."
+  },
+  {
+    id: 4,
+    question: "What are props in React?",
+    answer: "Props (short for properties) are read-only attributes used to pass data from a parent component to a child component."
+  },
+  {
+    id: 5,
+    question: "What is JSX?",
+    answer: "JSX is a syntax extension for JavaScript that looks similar to XML or HTML and is used in React to describe the UI."
+  }
+];
+
 
 const FAQ = () => {
   return (
@@ -36,76 +66,24 @@ const FAQ = () => {
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5">
-            <h3 class="fw-bolder h1 my-5">
+            <h3 class="fw-bolder h1 my-5 blue-gradient-text">
               A few things clients
               <br />
               normally ask me
             </h3>
-            <div class="accordion" data-collapsible="true">
-              <div class="accordion-header">
-                <div class="accordion-icon">
-                  <i class="accordion-closed icon-line-plus color gradient-text gradient-red-yellow"></i>
-                  <i class="accordion-open icon-line-minus color gradient-text gradient-red-yellow"></i>
-                </div>
-                <div class="accordion-title">
-                  Design &amp; Development Process
-                </div>
-              </div>
-              <div class="accordion-content">
-                Donec sed odio dui. Nulla vitae elit libero, a pharetra augue.
-                Nullam id dolor id nibh ultricies vehicula ut id elit. Integer
-                posuere erat a ante venenatis dapibus posuere velit aliquet.
-              </div>
-
-              <div class="accordion-header">
-                <div class="accordion-icon">
-                  <i class="accordion-closed icon-line-plus color gradient-text gradient-red-yellow"></i>
-                  <i class="accordion-open icon-line-minus color gradient-text gradient-red-yellow"></i>
-                </div>
-                <div class="accordion-title">What is Our Refund Policy</div>
-              </div>
-              <div class="accordion-content">
-                Integer posuere erat a ante venenatis dapibus posuere velit
-                aliquet. Duis mollis, est non commodo luctus. Aenean lacinia
-                bibendum nulla sed consectetur. Cras mattis consectetur purus
-                sit amet fermentum.
-              </div>
-
-              <div class="accordion-header" id="id-accordion-3">
-                <div class="accordion-icon">
-                  <i class="accordion-closed icon-line-plus color gradient-text gradient-red-yellow"></i>
-                  <i class="accordion-open icon-line-minus color gradient-text gradient-red-yellow"></i>
-                </div>
-                <div class="accordion-title">Our Processing Time</div>
-              </div>
-              <div class="accordion-content">
-                Nullam id dolor id nibh ultricies vehicula ut id elit. Integer
-                posuere erat a ante venenatis dapibus posuere velit aliquet.
-                Duis mollis, est non commodo luctus. Aenean lacinia bibendum
-                nulla sed consectetur.
-              </div>
-
-              <div class="accordion-header" id="id-accordion-4">
-                <div class="accordion-icon">
-                  <i class="accordion-closed icon-line-plus color gradient-text gradient-red-yellow"></i>
-                  <i class="accordion-open icon-line-minus color gradient-text gradient-red-yellow"></i>
-                </div>
-                <div class="accordion-title">
-                  How do I Pay and Payment Method
-                </div>
-              </div>
-              <div class="accordion-content">
-                Nullam id dolor id nibh ultricies vehicula ut id elit. Integer
-                posuere erat a ante venenatis dapibus posuere velit aliquet.
-                Duis mollis, est non commodo luctus. Aenean lacinia bibendum
-                nulla sed consectetur.
-              </div>
-            </div>
+            <Accordion defaultActiveKey="0">
+              {FAQS.map((faq, index) => (
+                <Accordion.Item eventKey={String(index)} key={faq.id}>
+                  <Accordion.Header>{faq.question}</Accordion.Header>
+                  <Accordion.Body>{faq.answer}</Accordion.Body>
+                </Accordion.Item>
+              ))}
+            </Accordion>
           </div>
 
           <div class="col-lg-7">
             <img
-              src="demos/freelancer/images/ask.svg"
+              src="/img/ask.svg"
               alt="FAQs"
               class="px-5"
             />

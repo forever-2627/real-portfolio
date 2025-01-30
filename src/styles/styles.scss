@@ -158,9 +158,9 @@
 }
 
 .testimonial-card {
-  background-color: rgb(17 18 21) !important;
+  background-color: #0c1427 !important;
   border-radius: 1rem;
-  box-shadow: 10px 10px 10px 1px rgb(17 18 21);
+  box-shadow: 10px 10px 10px 1px #0c1427;
   height: 320px;
 }
 
@@ -169,11 +169,11 @@
   font-size: 24px;
   padding: 2rem;
   border-radius: 50%;
-  background: #111215;
+  background: #0c1427;
   cursor: pointer;
 }
 .testimonial-arrow:hover {
-  box-shadow: 2px 2px 4px 4px #111215;
+  box-shadow: 2px 2px 4px 4px #0c1427;
 }
 
 .faq-back {
@@ -255,4 +255,25 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.accordion{
+  box-shadow: 0 1px 3px 0.5px #4ea2f7;
+}
+
+.accordion-item{
+  border: 1px solid #459bf1;
+}
+
+.accordion-button{
+  background: #4ea2f7!important;
+  color: #eeeeee;
+}
+
+.accordion-button.collapsed{
+  background: #0c1427!important;
+}
+
+.accordion-body{
+  background: #0c1427!important;
 }
