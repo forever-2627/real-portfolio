@@ -74,7 +74,7 @@ const Testimonials = () => {
 
         <div className="row justify-content-center mt-6 block-testimonials-2">
           <div 
-            className="col-lg-2 d-flex justify-content-center align-items-center"
+            className="col-lg-2 d-flex justify-content-center align-items-center z-index-5"
             data-aos="fade-right"
             data-aos-delay="200"
           >
@@ -128,7 +128,7 @@ const Testimonials = () => {
           </div>
 
           <div 
-            className="col-lg-2 d-flex justify-content-center align-items-center"
+            className="col-lg-2 d-flex justify-content-center align-items-center z-index-5"
             data-aos="fade-left"
             data-aos-delay="200"
           >

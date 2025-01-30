@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Accordion, Card, Button } from 'react-bootstrap';
+import AOS from "aos";
 
 const FAQS = [
   {
@@ -31,6 +32,14 @@ const FAQS = [
 
 
 const FAQ = () => {
+
+  useEffect(()=>{
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true
+    });
+  }, [])
   return (
     <div class="section m-0 faq-back blurred-border p-0">
       <div
@@ -66,12 +75,14 @@ const FAQ = () => {
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5">
-            <h3 class="fw-bolder h1 my-5 blue-gradient-text">
+            <h3 class="fw-bolder h1 my-5 blue-gradient-text" data-aos="fade-up"
+            data-aos-delay="200">
               A few things clients
               <br />
               normally ask me
             </h3>
-            <Accordion defaultActiveKey="0">
+            <Accordion defaultActiveKey="0" data-aos="fade-right"
+            data-aos-delay="500">
               {FAQS.map((faq, index) => (
                 <Accordion.Item eventKey={String(index)} key={faq.id}>
                   <Accordion.Header>{faq.question}</Accordion.Header>
@@ -82,7 +93,8 @@ const FAQ = () => {
           </div>
 
           <div class="col-lg-7">
-            <img
+            <img data-aos="fade-left"
+            data-aos-delay="500"
               src="/img/ask.svg"
               alt="FAQs"
               class="px-5"

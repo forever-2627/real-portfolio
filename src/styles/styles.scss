@@ -1,3 +1,12 @@
+body {
+  margin: 0; /* Removes default margin to avoid unintended scroll */
+  padding: 0; /* Removes default padding */
+  width: 100%; /* Ensures body takes full width */
+  min-height: 100vh; /* Ensures full viewport height */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
 .xl-text {
   font-size: 65px;
 }
@@ -48,7 +57,7 @@
   position: absolute;
   top: -46%;
   right: -40%;
-  z-index: -9;
+  z-index: 3;
 }
 
 .feature-box {
@@ -162,6 +171,7 @@
   border-radius: 1rem;
   box-shadow: 10px 10px 10px 1px #0c1427;
   height: 320px;
+  z-index: 6;
 }
 
 .testimonial-arrow {
@@ -177,7 +187,7 @@
 }
 
 .faq-back {
-  z-index: -9!important;
+  z-index: 4!important;
   margin-top: 360px!important;
   background: #0c1427 url("./images/bg.svg") no-repeat right center;
 }
@@ -299,4 +309,12 @@
   filter: blur(20px); /* Adjust the blur amount */
   z-index: -1; /* Place behind the main content */
   pointer-events: none; /* Ensures interactions work through the pseudo-elements */
+}
+
+.z-index-5{
+  z-index: 5;
+}
+
+#footer{
+  border-top: 1px solid white;
 }
