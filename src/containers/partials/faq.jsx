@@ -32,7 +32,7 @@ const FAQS = [
 
 const FAQ = () => {
   return (
-    <div class="section m-0 faq-back">
+    <div class="section m-0 faq-back blurred-border p-0">
       <div
         class="shape-divider"
         data-shape="wave-4"

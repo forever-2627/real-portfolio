@@ -60,6 +60,7 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="mt-6 pt-6 position-relative">
+      <div className="position-absolute">
       <div className="container position-relative">
         <div className="row text-center">
           <h1 
@@ -147,6 +148,7 @@ const Testimonials = () => {
         data-aos="fade-left"
         data-aos-delay="600"
       />
+      </div>
     </section>
   );
 };

@@ -46,8 +46,8 @@
 
 .photo-right {
   position: absolute;
-  top: -10%;
-  right: 3%;
+  top: -46%;
+  right: -40%;
   z-index: -9;
 }
 
@@ -177,11 +177,14 @@
 }
 
 .faq-back {
+  z-index: -9!important;
+  margin-top: 360px!important;
   background: #0c1427 url("./images/bg.svg") no-repeat right center;
 }
 
 #testimonials .container {
   height: 480px;
+  left: 25%;
 }
 
 .navbar-transparent {
@@ -276,4 +279,24 @@
 
 .accordion-body{
   background: #0c1427!important;
+}
+
+.blurred-border {
+  position: relative;
+  background-color: #201353;
+  z-index: 0; /* Ensure main content is on top */
+}
+
+.blurred-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: -30px; /* Adjust this to control the size of the blurred border */
+  background-color: inherit;
+  filter: blur(20px); /* Adjust the blur amount */
+  z-index: -1; /* Place behind the main content */
+  pointer-events: none; /* Ensures interactions work through the pseudo-elements */
 }
