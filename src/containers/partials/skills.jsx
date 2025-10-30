@@ -4,51 +4,57 @@ import SkillCard from "../../components/SkillCard";
 const Skills = () => {
   const SKILLS = [
     {
-      source: "/img/tech/mapbox.png",
-      title: "FULL STACK",
+      source: "/img/tech/fullstack.png",
+      title: "Full Stack Web",
       description:
-        "Objectively productivate interoperable process improvements after team building testing procedures.",
-      backColor: "#B4D8E7 ",
+        "End‑to‑end application delivery: responsive UIs, secure APIs, relational/NoSQL databases, authentication/authorization, CI/CD, and cloud deployments with monitoring.",
+      backColor: "#B4D8E72e",
+      shadowColor: "#B4D8E7",
       direction: 'top-left'
     },
     {
-      source: "/img/tech/mapbox.png",
-      title: "FULL STACK",
+      source: "/img/tech/react.png",
+      title: "React & Next.js",
       description:
-        "Objectively productivate interoperable process improvements after team building testing procedures.",
-      backColor: "#E3B7D2 ",
+        "Modern SPA/SSR frontends using component‑driven architecture, state management (Context/Redux), routing, accessibility, code‑splitting, and performance tuning.",
+      backColor: "#E3B7D22e",
+      shadowColor: "#E3B7D2",
       direction: 'top'
     },
     {
-      source: "/img/tech/mapbox.png",
-      title: "FULL STACK",
+      source: "/img/tech/map.png",
+      title: "Web GIS & Mapping",
       description:
-        "Objectively productivate interoperable process improvements after team building testing procedures.",
-      backColor: "#F2E6B1 ",
+        "Interactive mapping with Mapbox/Leaflet: vector tiles, geocoding, routing, clustering, heatmaps, and rich spatial visualization integrated with real‑time data.",
+      backColor: "#F2E6B12e",
+      shadowColor: "#F2E6B1",
       direction: 'top-right'
     },
     {
-      source: "/img/tech/mapbox.png",
-      title: "FULL STACK",
+      source: "/img/tech/gis.png",
+      title: "GIS Analysis",
       description:
-        "Objectively productivate interoperable process improvements after team building testing procedures.",
-      backColor: "#CBE6D7 ",
+        "Comprehensive spatial analysis and geoprocessing: projections, buffering/overlay, raster‑vector workflows, spatial joins, and cartography best practices for clear maps.",
+      backColor: "#CBE6D72e",
+      shadowColor: "#CBE6D7",
       direction: 'bottom-left'
     },
     {
-      source: "/img/tech/mapbox.png",
-      title: "FULL STACK",
+      source: "/img/tech/python.png",
+      title: "AI/ML for Geospatial",
       description:
-        "Objectively productivate interoperable process improvements after team building testing procedures.",
-      backColor: "#FAD4B1 ",
+        "Remote sensing ML: feature extraction, semantic segmentation, land‑cover classification, change detection, and model serving pipelines for production.",
+      backColor: "#FAD4B12e",
+      shadowColor: "#FAD4B1",
       direction: 'bottom'
     },
     {
-      source: "/img/tech/mapbox.png",
-      title: "FULL STACK",
+      source: "/img/tech/node.png",
+      title: "Node.js & REST APIs",
       description:
-        "Objectively productivate interoperable process improvements after team building testing procedures.",
-      backColor: "#D0B7E6 ",
+        "Scalable backend services: REST/GraphQL design, authentication, caching, background jobs, automated testing, logging/observability, and performance optimization.",
+      backColor: "#D0B7E62e",
+      shadowColor: "#D0B7E6",
       direction: 'bottom-right'
     },
   ];
@@ -73,6 +79,7 @@ const Skills = () => {
                 title={skill.title}
                 description={skill.description}
                 backColor={skill.backColor}
+                shadowColor={skill.shadowColor}
                 direction={skill.direction}
               />
             );

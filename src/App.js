@@ -12,13 +12,6 @@ import "aos/dist/aos.css";
 function App() {
   return (
     <HelmetProvider>
-      <Helmet>
-        <title>Hi Deadline - Home</title>
-        <meta
-          name="description"
-          content="Hi Deadline App"
-        />
-      </Helmet>
       <div>
         <ToastContainer />
         <MyRouter />
