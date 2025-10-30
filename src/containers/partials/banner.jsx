@@ -9,7 +9,7 @@ export default function Banner() {
     photo: '',
     skills: ["Full Stack Web Developer", "AI Engineer", "GIS Specialist"],
     skillLogos: [
-      {source: 'img/tech/reactjs.png', top:'60%', left: '10%', width: '360px'},
+      {source: 'img/tech/react.png', top:'60%', left: '10%', width: '360px'},
       {source: 'img/tech/openai.png', top:'5%', left: '60%'},
       {source: 'img/tech/qgis.png', top:'25%', left: '70%', width: '320px'},
       {source: 'img/tech/mapbox.png', top:'70%', left: '85%', width: '120px'}],
@@ -67,17 +67,19 @@ export default function Banner() {
   ));
 
   return (
-    <header className="header position-relative" style={{height: '100vh'}}>
-      {BANNER.skillLogos.map(item => {
-        return <BackLogo
-        source={item.source}
-        top={item.top}
-        left={item.left}
-        width={item.width ? item.width : ''}
-        className={"rotate"}
-      />
-      })}
-      <div className="container-md">
+    <header className="position-relative py-5" style={{ height: '100vh' }}>
+      <div className="position-absolute top-0 start-0 w-100 h-100" style={{ zIndex: 0, pointerEvents: 'none' }}>
+        {BANNER.skillLogos.map(item => {
+          return <BackLogo
+          source={item.source}
+          top={item.top}
+          left={item.left}
+          width={item.width ? item.width : ''}
+          className={"rotate"}
+        />
+        })}
+      </div>
+      <div className="container-md" style={{ position: 'relative', zIndex: 1 }}>
         <div className="d-flex flex-column justify-content-between align-items-center gap-3 mt-6">
           <img
             src="img/photo.png"
@@ -90,7 +92,7 @@ export default function Banner() {
           />
 
           <h1 className="xl-text mt-5 text-center">
-            <span data-aos="fade-left">I Am An Experienced</span>
+            <span data-aos="fade-left">I Am an Experienced</span>
             <br />
             <span
               className="primary-gradient-text fw-bold"

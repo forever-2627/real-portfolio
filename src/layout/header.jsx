@@ -56,8 +56,9 @@ export default function Header() {
   return (
     <nav className={`navbar navbar-expand-lg sticky-top py-0 ${isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
       <div className="container">
-        <Link className="navbar-brand" to="/">
-          <img src="/img/logo.png" className="nav-logo" alt="Logo" />
+        <Link className="navbar-brand fs-3" to="/">
+          <span className="fw-bold" style={{ color: '#ffb6c1' }}>Yun</span>
+          <span className="fw-bold text-white">Soft</span>
         </Link>
 
         <button
