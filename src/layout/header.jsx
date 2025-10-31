@@ -10,7 +10,6 @@ export default function Header() {
   const location = useLocation();
   const menuRef = useRef(null);
   const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const [ isMobile, setIsMobile ] = useState(false);
   const [ isMenu, setIsMenu ] = useState(false);
@@ -25,22 +24,6 @@ export default function Header() {
   };
 
   }, [location]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   
   const handleLogout = () => {
     setIsMenu(false);
@@ -54,8 +37,17 @@ export default function Header() {
 
 
   return (
-    <nav className={`navbar navbar-expand-lg fixed-top py-0 ${isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`} style={{ zIndex: 1050 }}>
-      <div className="container-fluid container-lg">
+    <nav 
+      className="navbar navbar-expand-lg fixed-top py-0 navbar-transparent" 
+      style={{ 
+        zIndex: 1050,
+        backgroundColor: 'transparent',
+        background: 'transparent',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)'
+      }}
+    >
+      <div className="container-lg">
         <Link className="navbar-brand fs-3 fs-md-4" to="/">
           <span className="fw-bold" style={{ color: '#ffb6c1' }}>Yun</span>
           <span className="fw-bold text-white">Soft</span>

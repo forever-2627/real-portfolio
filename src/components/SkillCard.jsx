@@ -73,7 +73,7 @@ const SkillCard = ({ backColor, shadowColor, source, title, description, directi
         
         <div className="d-flex flex-column h-100 position-relative" style={{ zIndex: 1 }}>
           <div className="card-body d-flex flex-column flex-grow-1">
-            <div className="d-flex align-items-center justify-content-center mb-4 skill-image-wrapper">
+            <div className="d-flex align-items-center justify-content-start mb-4 skill-image-wrapper">
               <img 
                 src={source} 
                 style={imageStyle} 

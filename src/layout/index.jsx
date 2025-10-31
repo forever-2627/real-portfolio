@@ -7,7 +7,7 @@ const PageLayout = () => {
   return (
     <div style={{ overflowX: 'hidden', maxWidth: '100%' }}>
       <Header />
-      <div className='bg-[#ccfff3] position-relative' style={{ overflowX: 'hidden', overflowY: 'visible', maxWidth: '100%' }}>
+      <div className='position-relative' style={{ overflowX: 'hidden', overflowY: 'visible', maxWidth: '100%', backgroundColor: 'transparent' }}>
         <Outlet />
       </div>
       <Footer/>

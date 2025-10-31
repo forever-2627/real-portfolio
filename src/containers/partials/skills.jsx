@@ -60,13 +60,9 @@ const Skills = () => {
   ];
 
   return (
-    <div class="section bg-transparent py-5 position-relative" style={{ zIndex: 10, overflow: 'visible' }}>
-      <img
-        src="img/title-back.png"
-        alt=""
-        class="position-absolute"
-        style={{ top: "-15rem", right: "0", zIndex: -99}}
-      ></img>
+    <div class="section py-5 position-relative skills-section" style={{ zIndex: 10, overflow: 'visible' }}>
+      {/* Blurred edge at top */}
+      <div className="skills-top-blur"></div>
       <div class="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="row text-center mb-5">
           <div className="col-12">

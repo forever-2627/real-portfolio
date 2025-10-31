@@ -13,8 +13,8 @@ export default function Banner() {
       {source: 'img/tech/openai.png', top:'5%', left: '60%'},
       {source: 'img/tech/qgis.png', top:'25%', left: '70%', width: '320px'},
       {source: 'img/tech/mapbox.png', top:'70%', left: '85%', width: '120px'}],
-    description: `Thank you for reading my profile!
-    I am a Full Stack Web Developer, and I am here to turn your idea into a product. With over 5 years of experience in this field, I 've started my journey as a freelancer. I look forward to your support and will give my best effort to your project.`
+    description: `Welcome to my portfolio!
+    I'm a passionate Full Stack Developer specializing in modern web technologies and geospatial solutions. With expertise in building scalable applications and creating innovative mapping experiences, I transform complex ideas into elegant digital solutions.`
   }
   const el = useRef(null);
 
@@ -81,7 +81,9 @@ export default function Banner() {
   ));
 
   return (
-    <header className="position-relative py-3 py-md-5" style={{ minHeight: '100vh', height: 'auto', zIndex: 1, overflow: 'visible' }}>
+    <header className="position-relative py-3 py-md-5 banner-section" style={{ minHeight: '100vh', height: 'auto', zIndex: 1, overflow: 'visible' }}>
+      {/* Blurred edge at bottom */}
+      <div className="banner-bottom-blur"></div>
       <div className="position-absolute top-0 start-0 w-100 h-100 d-none d-md-block" style={{ zIndex: 0, pointerEvents: 'none' }}>
         {BANNER.skillLogos.map((item, index) => {
           return <BackLogo
@@ -101,28 +103,38 @@ export default function Banner() {
             width="192"
             alt="Profile"
             className="rounded-circle banner-photo"
-            style={{ maxWidth: '150px', width: '100%', height: 'auto' }}
+            style={{ maxWidth: '196px', width: '100%', height: 'auto' }}
             data-aos="zoom-in-up"
             data-aos-mirror="true"
             data-aos-once="false"
           />
 
           <h1 className="xl-text mt-3 mt-md-5 text-center banner-title">
-            <span data-aos="fade-left">I Am an Experienced</span>
+            <span data-aos="fade-left">I am an Experienced</span>
             <br className="d-none d-md-block" />
             <span className="d-block d-md-inline"> </span>
             <span
-              className="primary-gradient-text fw-bold"
+              className="primary-gradient-text fw-bold typed-text"
               data-aos="fade-right"
               ref={el}
             ></span>
           </h1>
           <p className="lead px-2 px-md-6 text-center wave-text banner-description">{waveText}</p>
-          <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2 gap-md-3 w-100 px-3">
-            <a href="#" className="btn btn-primary text-white w-100 w-sm-auto px-4 px-md-5">
+          <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2 gap-md-3 w-100 px-3" style={{ position: 'relative', zIndex: 2 }}>
+            <a 
+              href="#contact" 
+              className="btn btn-primary text-white w-100 w-sm-auto px-4 px-md-5"
+              tabIndex={0}
+              style={{ position: 'relative', zIndex: 2 }}
+            >
               GET IN TOUCH
             </a>
-            <a href="#" className="btn btn-outline-primary text-white w-100 w-sm-auto px-4 px-md-5">
+            <a 
+              href="#" 
+              className="btn btn-outline-primary text-white w-100 w-sm-auto px-4 px-md-5"
+              tabIndex={0}
+              style={{ position: 'relative', zIndex: 2 }}
+            >
               Download CV
             </a>
           </div>
