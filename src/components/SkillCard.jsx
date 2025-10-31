@@ -8,7 +8,12 @@ const SkillCard = ({ backColor, shadowColor, source, title, description, directi
   useEffect(() => {
     // AOS should be initialized once globally, but refresh if needed
     if (typeof AOS !== 'undefined') {
-      AOS.refresh();
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        if (AOS && typeof AOS.refresh === 'function') {
+          AOS.refresh();
+        }
+      }, 100);
     }
   }, []);
   
@@ -22,7 +27,6 @@ const SkillCard = ({ backColor, shadowColor, source, title, description, directi
       : `0px 0px 10px ${shadowColor}50, 0px 4px 15px ${shadowColor}20`,
     border: `1px solid ${shadowColor}40`,
     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-    transform: isHovered ? 'translateY(-8px) scale(1.02)' : 'translateY(0) scale(1)',
     position: 'relative',
     overflow: 'hidden',
   };
@@ -53,8 +57,8 @@ const SkillCard = ({ backColor, shadowColor, source, title, description, directi
         className="d-flex flex-column p-4 border-0 skill-card w-100"
         style={cardStyle}
         data-aos={aosType}
-        data-aos-duration="1000"
-        data-aos-once="true"
+        data-aos-duration="2000"
+        data-aos-once="false"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

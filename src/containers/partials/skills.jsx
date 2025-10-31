@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
 import SkillCard from "../../components/SkillCard";
 
 const Skills = () => {
+  // Ensure AOS is initialized and refreshed when Skills component mounts
+  useEffect(() => {
+    if (typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function') {
+      // Don't re-initialize if already initialized (Banner component handles initialization)
+      // Just refresh to detect new skill card elements
+      setTimeout(() => {
+        AOS.refresh();
+      }, 300);
+    }
+  }, []);
   const SKILLS = [
     {
       source: "/img/tech/fullstack.png",

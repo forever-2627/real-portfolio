@@ -924,6 +924,13 @@ section,
   flex-direction: column;
   height: 100%;
   min-height: 100%;
+  transition: box-shadow 0.4s ease;
+}
+
+/* Only apply hover transform after AOS animation completes - use translate instead of transform to avoid conflicts */
+.skill-card.aos-animate:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
 }
 
 /* Ensure skill card columns stretch to full height */
@@ -977,11 +984,7 @@ section,
   }
 }
 
-/* Smooth entrance animation */
-.skill-card[data-aos] {
-  animation-duration: 0.8s;
-  animation-fill-mode: both;
-}
+/* Let AOS handle animations - no conflicting CSS needed */
 
 /* Enhanced hover state for better visual feedback */
 .skill-card:hover .skill-image {
