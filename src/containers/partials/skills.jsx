@@ -60,21 +60,27 @@ const Skills = () => {
   ];
 
   return (
-    <div class="section bg-transparent py-5 position-relative">
+    <div class="section bg-transparent py-5 position-relative" style={{ zIndex: 10, overflow: 'visible' }}>
       <img
         src="img/title-back.png"
         alt=""
         class="position-absolute"
-        style={{ top: "-15rem", right: "0", zIndex: "-999" }}
+        style={{ top: "-15rem", right: "0", zIndex: -99}}
       ></img>
-      <div class="container">
-        <div className="row text-center">
-          <h1 className="mb-4 blue-gradient-text fw-bold">MY SKILLS</h1>
+      <div class="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="row text-center mb-5">
+          <div className="col-12">
+            <h1 className="mb-3 blue-gradient-text fw-bold portfolio-section-title">MY SKILLS</h1>
+            <p className="text-white-50 mb-0 portfolio-section-subtitle">
+              My core technical expertise and favorite stacks for building and analyzing geospatial solutions
+            </p>
+          </div>
         </div>
-        <div class="row align-items-end mb-5">
-          {SKILLS.map((skill) => {
+        <div class="row align-items-stretch mb-5 g-3 g-md-4">
+          {SKILLS.map((skill, index) => {
             return (
               <SkillCard
+                key={index}
                 source={skill.source}
                 title={skill.title}
                 description={skill.description}

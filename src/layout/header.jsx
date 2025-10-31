@@ -54,9 +54,9 @@ export default function Header() {
 
 
   return (
-    <nav className={`navbar navbar-expand-lg sticky-top py-0 ${isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
-      <div className="container">
-        <Link className="navbar-brand fs-3" to="/">
+    <nav className={`navbar navbar-expand-lg fixed-top py-0 ${isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`} style={{ zIndex: 1050 }}>
+      <div className="container-fluid container-lg">
+        <Link className="navbar-brand fs-3 fs-md-4" to="/">
           <span className="fw-bold" style={{ color: '#ffb6c1' }}>Yun</span>
           <span className="fw-bold text-white">Soft</span>
         </Link>
@@ -69,34 +69,35 @@ export default function Header() {
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={() => setIsMenu(!isMenu)}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav ms-auto">
+        <div className={`collapse navbar-collapse ${isMenu ? 'show' : ''}`} id="navbarNavDropdown">
+          <ul className="navbar-nav ms-auto text-center text-md-start">
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/" onClick={() => setIsMenu(false)}>
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/projects">
+              <Link className="nav-link" to="/projects" onClick={() => setIsMenu(false)}>
                 Projects
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/blogs">
+              <Link className="nav-link" to="/blogs" onClick={() => setIsMenu(false)}>
                 Blogs
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link className="nav-link" to="/about" onClick={() => setIsMenu(false)}>
                 About
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">
+              <Link className="nav-link" to="/contact" onClick={() => setIsMenu(false)}>
                 Contact
               </Link>
             </li>

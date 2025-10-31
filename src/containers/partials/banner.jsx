@@ -41,10 +41,24 @@ export default function Banner() {
   useEffect(() => {
     AOS.init({
       duration: 1000, // values from 0 to 3000, with step 50ms
-      easing: "ease", // default easing for AOS animations
+      easing: "ease-out-cubic", // smoother easing function
       once: false, // whether animation should happen only once - while scrolling down
       mirror: true, // whether elements should animate out while scrolling past them
+      offset: 100, // offset (in px) from the original trigger point
+      delay: 0, // values from 0 to 3000, with step 50ms
+      anchorPlacement: "top-bottom", // defines which position of the element should be used to trigger animation
     });
+    
+    // Refresh AOS on window resize for better performance
+    const handleResize = () => {
+      AOS.refresh();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const text = `${BANNER.description}`;
@@ -67,10 +81,11 @@ export default function Banner() {
   ));
 
   return (
-    <header className="position-relative py-5" style={{ height: '100vh' }}>
-      <div className="position-absolute top-0 start-0 w-100 h-100" style={{ zIndex: 0, pointerEvents: 'none' }}>
-        {BANNER.skillLogos.map(item => {
+    <header className="position-relative py-3 py-md-5" style={{ minHeight: '100vh', height: 'auto', zIndex: 1, overflow: 'visible' }}>
+      <div className="position-absolute top-0 start-0 w-100 h-100 d-none d-md-block" style={{ zIndex: 0, pointerEvents: 'none' }}>
+        {BANNER.skillLogos.map((item, index) => {
           return <BackLogo
+          key={index}
           source={item.source}
           top={item.top}
           left={item.left}
@@ -79,33 +94,35 @@ export default function Banner() {
         />
         })}
       </div>
-      <div className="container-md" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="d-flex flex-column justify-content-between align-items-center gap-3 mt-6">
+      <div className="container container-md px-3 px-md-4" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="d-flex flex-column justify-content-center align-items-center gap-2 gap-md-4 py-4 py-md-6">
           <img
             src="img/photo.png"
             width="192"
             alt="Profile"
-            className="rounded-circle"
+            className="rounded-circle banner-photo"
+            style={{ maxWidth: '150px', width: '100%', height: 'auto' }}
             data-aos="zoom-in-up"
             data-aos-mirror="true"
             data-aos-once="false"
           />
 
-          <h1 className="xl-text mt-5 text-center">
+          <h1 className="xl-text mt-3 mt-md-5 text-center banner-title">
             <span data-aos="fade-left">I Am an Experienced</span>
-            <br />
+            <br className="d-none d-md-block" />
+            <span className="d-block d-md-inline"> </span>
             <span
               className="primary-gradient-text fw-bold"
               data-aos="fade-right"
               ref={el}
             ></span>
           </h1>
-          <p className="lead px-6 text-center wave-text">{waveText}</p>
-          <div className="d-flex justify-content-center align-items-center gap-3">
-            <a href="#" className="btn btn-primary text-white">
+          <p className="lead px-2 px-md-6 text-center wave-text banner-description">{waveText}</p>
+          <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2 gap-md-3 w-100 px-3">
+            <a href="#" className="btn btn-primary text-white w-100 w-sm-auto px-4 px-md-5">
               GET IN TOUCH
             </a>
-            <a href="#" className="btn btn-outline-primary text-white">
+            <a href="#" className="btn btn-outline-primary text-white w-100 w-sm-auto px-4 px-md-5">
               Download CV
             </a>
           </div>

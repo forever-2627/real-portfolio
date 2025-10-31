@@ -14,7 +14,10 @@ const BackLogo = ({ top, left, right, bottom, width, source, className, alt }) =
           right: right,
           bottom: bottom,
           width: width,
-          zIndex: -999
+          zIndex: -1,
+          willChange: 'transform',
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)'
         }}
       />
     );
