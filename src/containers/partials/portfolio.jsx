@@ -11,32 +11,33 @@ const Portfolio = () => {
   }, []);
   const PORTFOLIOS = [
     {
-      source: "img/loan1.jpeg",
-      title: "Money Lending Platform",
+      source: "img/superfreevpn.png",
+      title: "Super Free VPN",
       description:
-        "This is money lending website. This site has User Dashboard, Admin Panel and deployed on https://ismblending.com",
+        "100% free, fast, no-log VPN offering global servers, unlimited bandwidth, and strong privacy protection.",
       toLink: "#",
       direction: "left",
     },
     {
-      source: "img/data-miner.png",
-      title: "Data Mining Project",
+      source: "img/mapanalysis.png",
+      title: "Mapping Software",
       description:
-        "This is data mining project from excel spreadsheet to see the reactionship between the price and sold amount.",
+        "Visual mapping software for teams to analyze, visualize, and optimize location data for better business decisions.",
       toLink: "#",
       direction: "right",
     },
+    {
+      source: "img/wetlanddetection.png",
+      title: "Wetland Detection",
+      description:
+        "Wetland detection with satellite imagery uses remote sensing to identify and monitor wetland areas based on surface characteristics.",
+      toLink: "#",
+      direction: "right",
+    }
   ];
 
   return (
     <section id="projects" className="mt-6 mb-5 pt-5 pb-5 position-relative">
-      <img
-        src="img/left.png"
-        className="photo-left"
-        data-aos="fade-left"
-        data-aos-duration="10000"
-        data-aos-once="true"
-      />
       <div className="container">
         <div className="row text-center mb-5">
           <div className="col-12">
