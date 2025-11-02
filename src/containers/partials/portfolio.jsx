@@ -58,6 +58,7 @@ const Portfolio = () => {
                 description={portfolio.description}
                 toLink={portfolio.toLink}
                 direction={portfolio.direction}
+                index={index}
               />
             );
           })}

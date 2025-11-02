@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import { getAosType } from "../utils";
 
-const PortfolioCard = ({ source, title, description, toLink, direction }) => {
+const PortfolioCard = ({ source, title, description, toLink, direction, index }) => {
   useEffect(() => {
     // AOS should be initialized once globally, but refresh if needed
     if (typeof AOS !== 'undefined') {
-      AOS.refresh();
+      setTimeout(() => {
+        AOS.refresh();
+      }, 300);
     }
   }, []);
 
@@ -17,8 +19,10 @@ const PortfolioCard = ({ source, title, description, toLink, direction }) => {
       <div
         className="card border-radius-4 portfolio-card h-100"
         data-aos={aosType}
-        data-aos-duration="1000"
-        data-aos-once="true"
+        data-aos-duration="800"
+        data-aos-delay={index * 1000}
+        data-aos-once="false"
+        data-aos-easing="ease-out"
       >
         <div className="portfolio-img-wrapper position-relative overflow-hidden">
           <img
