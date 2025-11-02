@@ -17,7 +17,7 @@ const testimonialData = [
     image: "img/clients/Aaron.png",
     name: "Aaron Busary",
     role: "Manager",
-    quote: "It was great working with him, he was proactive, understood requirements well, and delivered the work on time and within budget. I am looking forward to working with him again on the next project.nthusiastically synergize premier solutions rather than superior skills..."
+    quote: "It was great working with him, he was proactive, understood requirements well, and delivered the work on time and within budget. I am looking forward to working with him again on the next project."
   },
   {
     id: 3,
@@ -26,128 +26,107 @@ const testimonialData = [
     role: "Student",
     quote: "Working with him has been very effective, everything has gone well, he is a person who knows how to do and say things confidently to create great feedback and achieve great results"
   },
-  // Add more testimonials
 ];
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState('next');
-  // Initialize AOS
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-      mirror: true
-    });
-  }, []);
 
   // Refresh AOS when testimonial changes
   useEffect(() => {
-    AOS.refresh();
+    if (typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function') {
+      AOS.refresh();
+    }
   }, [currentIndex]);
 
   const handlePrevious = () => {
+    setDirection('prev');
     setCurrentIndex(current => 
       current === 0 ? testimonialData.length - 1 : current - 1
     );
   };
 
   const handleNext = () => {
+    setDirection('next');
     setCurrentIndex(current => 
       current === testimonialData.length - 1 ? 0 : current + 1
     );
   };
 
   return (
-    <section id="testimonials" className="mt-6 pt-6 position-relative">
-      <div className="position-absolute">
-      <div className="container position-relative">
-        <div className="row text-center">
-          <h1 
-            className="mb-2 blue-gradient-text fw-bold"
-            data-aos="fade-down"
-            data-aos-delay="100"
-          >
-            TESTIMONIALS
-          </h1>
+    <section id="testimonials" className="section py-5 position-relative testimonials-section">
+      <div className="container position-relative" style={{ zIndex: 2, position: 'relative' }}>
+        <div className="row text-center mb-5">
+          <div className="col-12">
+            <h1 className="mb-3 blue-gradient-text fw-bold portfolio-section-title" data-aos="fade-down">
+              TESTIMONIALS
+            </h1>
+            <p className="text-white-50 mb-0 portfolio-section-subtitle" data-aos="fade-up" data-aos-delay="100">
+              What clients say about working with me
+            </p>
+          </div>
         </div>
 
-        <div className="row justify-content-center mt-6 block-testimonials-2">
+        <div className="row justify-content-center align-items-center mt-4">
           <div 
-            className="col-lg-2 d-flex justify-content-center align-items-center z-index-5"
+            className="col-auto d-flex justify-content-center align-items-center testimonial-nav-btn"
             data-aos="fade-right"
             data-aos-delay="200"
           >
-            <FontAwesomeIcon 
-              icon={faArrowLeft} 
-              className="testimonial-arrow"
+            <button
               onClick={handlePrevious}
-              style={{ cursor: 'pointer' }}
-            />
+              className="testimonial-arrow-btn testimonial-arrow-prev"
+              aria-label="Previous testimonial"
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
           </div>
 
-          <div className="col-lg-8">
-          <div className={`testimonial-wrapper ${direction}`}>
-            <div 
-              className="feature-box testimonial fbox-center fbox-bg testimonial-card p-4"
-              data-aos="zoom-in"
-              data-aos-delay="300"
-            >
-              <div 
-                className="fbox-icon bg-transparent"
-                data-aos="fade-down"
-                data-aos-delay="400"
-              >
-                <a href="#">
-                  <img
-                    src={testimonialData[currentIndex].image}
-                    alt="Featured Box Image"
-                    className="border border-white border-width-5"
-                  />
-                </a>
+          <div className="col-lg-8 col-md-10">
+            <div className={`testimonial-wrapper ${direction}`} key={currentIndex}>
+              <div className="testimonial-card portfolio-card" data-aos="zoom-in" data-aos-delay="300">
+                <div className="testimonial-content p-4 p-md-5">
+                  <div className="testimonial-header d-flex align-items-center mb-4">
+                    <div className="testimonial-image-wrapper me-4">
+                      <img
+                        src={testimonialData[currentIndex].image}
+                        alt={testimonialData[currentIndex].name}
+                        className="testimonial-image"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="testimonial-name mb-1">
+                        {testimonialData[currentIndex].name}
+                      </h4>
+                      <h5 className="testimonial-role text-white-50 fw-normal mb-0">
+                        {testimonialData[currentIndex].role}
+                      </h5>
+                    </div>
+                  </div>
+                  <div className="testimonial-quote">
+                    <p className="text-white fst-italic mb-0" style={{ fontSize: '1.05rem', lineHeight: '1.8' }}>
+                      "{testimonialData[currentIndex].quote}"
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div 
-                className="fbox-content p-3"
-                data-aos="fade-up"
-                data-aos-delay="500"
-              >
-                <h4 className="mb-0">
-                  <a className="text-white" href="#">
-                    {testimonialData[currentIndex].name}
-                  </a>
-                </h4>
-                <h5 className="text-white-50 fw-normal">
-                  {testimonialData[currentIndex].role}
-                </h5>
-                <p className="text-larger font-secondary fst-italic mb-0">
-                  "{testimonialData[currentIndex].quote}"
-                </p>
-              </div>
-            </div>
             </div>
           </div>
 
           <div 
-            className="col-lg-2 d-flex justify-content-center align-items-center z-index-5"
+            className="col-auto d-flex justify-content-center align-items-center testimonial-nav-btn"
             data-aos="fade-left"
             data-aos-delay="200"
           >
-            <FontAwesomeIcon 
-              icon={faArrowRight} 
-              className="testimonial-arrow"
+            <button
               onClick={handleNext}
-              style={{ cursor: 'pointer' }}
-            />
+              className="testimonial-arrow-btn testimonial-arrow-next"
+              aria-label="Next testimonial"
+            >
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
           </div>
         </div>
-      </div>
-      <img 
-        src="img/right.png" 
-        className="photo-right" 
-        alt="right"
-        data-aos="fade-left"
-        data-aos-delay="600"
-      />
       </div>
     </section>
   );
