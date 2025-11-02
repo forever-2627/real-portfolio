@@ -1,108 +1,91 @@
 import React, {useEffect} from "react";
-import { Accordion, Card, Button } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 import AOS from "aos";
 
 const FAQS = [
   {
     id: 1,
-    question: "What is React?",
-    answer: "React is a JavaScript library for building user interfaces, maintained by Facebook and a community of individual developers and companies."
+    question: "What services do you offer?",
+    answer: "I specialize in Full Stack Web Development, AI/ML solutions for geospatial applications, and Web GIS development. I build responsive web applications, develop mapping solutions with Mapbox and Leaflet, create REST APIs with Node.js, and implement machine learning models for remote sensing and spatial analysis."
   },
   {
     id: 2,
-    question: "How does React differ from Angular?",
-    answer: "React is a library focused on building the UI, while Angular is a full-fledged framework that provides more built-in functionalities like routing and form handling."
+    question: "What is your typical project timeline?",
+    answer: "Project timelines vary based on scope and complexity. A simple web application might take 2-4 weeks, while a full-stack application with GIS features could take 2-3 months. I provide detailed project timelines after understanding your requirements and always aim to deliver on time."
   },
   {
     id: 3,
-    question: "What is state in React?",
-    answer: "State is an object that determines how a component renders and behaves. State can change over time, usually as a result of user actions."
+    question: "Do you work with international clients?",
+    answer: "Yes, I work with clients worldwide. With over 5 years of experience as a freelancer, I'm comfortable collaborating across different time zones and can adapt to various communication preferences and project management tools."
   },
   {
     id: 4,
-    question: "What are props in React?",
-    answer: "Props (short for properties) are read-only attributes used to pass data from a parent component to a child component."
+    question: "What technologies do you use for mapping projects?",
+    answer: "For mapping and GIS projects, I primarily use Mapbox GL JS, Leaflet, and OpenLayers for web mapping. For GIS analysis, I work with QGIS, PostGIS, and Python libraries like GeoPandas and Rasterio. I also integrate geocoding services, routing APIs, and real-time data visualization."
   },
   {
     id: 5,
-    question: "What is JSX?",
-    answer: "JSX is a syntax extension for JavaScript that looks similar to XML or HTML and is used in React to describe the UI."
+    question: "Can you help with AI/ML for geospatial data?",
+    answer: "Absolutely! I have experience in remote sensing ML, including feature extraction, semantic segmentation, land-cover classification, and change detection using satellite imagery. I can help you build and deploy ML models for geospatial applications."
+  },
+  {
+    id: 6,
+    question: "What is your communication process during projects?",
+    answer: "I believe in transparent and regular communication. I provide project updates, respond promptly to messages, and ensure you're involved in key decisions. I'm available through your preferred communication channels and schedule regular check-ins to keep you informed about progress."
   }
 ];
 
-
 const FAQ = () => {
+  useEffect(() => {
+    if (typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function') {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 300);
+    }
+  }, []);
 
-  useEffect(()=>{
-    AOS.init({
-      duration: 1000,
-      once: false,
-      mirror: true
-    });
-  }, [])
   return (
-    <div class="section m-0 faq-back blurred-border p-0">
-      <div
-        class="shape-divider"
-        data-shape="wave-4"
-        data-height="150"
-        id="shape-divider-6017"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1280 140"
-          preserveAspectRatio="none"
-        >
-          <path
-            class="shape-divider-fill"
-            fill="#201353"
-            d="M0 51.76c36.21-2.25 77.57-3.58 126.42-3.58 320 0 320 57 640 57 271.15 0 312.58-40.91 513.58-53.4V0H0z"
-            opacity="0.3"
-          ></path>
-          <path
-            class="shape-divider-fill"
-            fill="#201353"
-            d="M0 24.31c43.46-5.69 94.56-9.25 158.42-9.25 320 0 320 89.24 640 89.24 256.13 0 307.28-57.16 481.58-80V0H0z"
-            opacity="0.5"
-          ></path>
-          <path
-            class="shape-divider-fill"
-            fill="#201353"
-            d="M0 0v3.4C28.2 1.6 59.4.59 94.42.59c320 0 320 84.3 640 84.3 285 0 316.17-66.85 545.58-81.49V0z"
-          ></path>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <h3 class="fw-bolder h1 my-5 blue-gradient-text" data-aos="fade-up"
-            data-aos-delay="200">
-              A few things clients
-              <br />
-              normally ask me
-            </h3>
-            <Accordion defaultActiveKey="0" data-aos="fade-right"
-            data-aos-delay="500">
+    <section id="faq" className="section py-5 position-relative faq-section">
+      <div className="container position-relative" style={{ zIndex: 2 }}>
+        <div className="row text-center mb-5">
+          <div className="col-12">
+            <h1 className="mb-3 blue-gradient-text fw-bold portfolio-section-title" data-aos="fade-down">
+              FREQUENTLY ASKED QUESTIONS
+            </h1>
+            <p className="text-white-50 mb-0 portfolio-section-subtitle" data-aos="fade-up" data-aos-delay="100">
+              Common questions about my services and expertise
+            </p>
+          </div>
+        </div>
+
+        <div className="row align-items-center justify-content-center">
+          <div className="col-lg-6 col-md-10" data-aos="fade-right" data-aos-delay="200">
+            <Accordion defaultActiveKey="0" className="faq-accordion">
               {FAQS.map((faq, index) => (
-                <Accordion.Item eventKey={String(index)} key={faq.id}>
-                  <Accordion.Header>{faq.question}</Accordion.Header>
-                  <Accordion.Body>{faq.answer}</Accordion.Body>
+                <Accordion.Item eventKey={String(index)} key={faq.id} className="faq-item">
+                  <Accordion.Header className="faq-header">
+                    <span className="faq-question">{faq.question}</span>
+                  </Accordion.Header>
+                  <Accordion.Body className="faq-body">
+                    {faq.answer}
+                  </Accordion.Body>
                 </Accordion.Item>
               ))}
             </Accordion>
           </div>
 
-          <div class="col-lg-7">
-            <img data-aos="fade-left"
-            data-aos-delay="500"
-              src="/img/ask.svg"
-              alt="FAQs"
-              class="px-5"
-            />
+          <div className="col-lg-6 d-none d-lg-block" data-aos="fade-left" data-aos-delay="300">
+            <div className="faq-image-wrapper">
+              <img
+                src="/img/ask.svg"
+                alt="FAQs"
+                className="faq-image"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
