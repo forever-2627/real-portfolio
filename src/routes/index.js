@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from '../contexts/AuthContext';
 import PrivateRoute from './PrivateRoute'
 import PageLayout from '../layout'
+import ScrollToTop from '../components/ScrollToTop'
 
 import LoginPage from '../containers/login'
 import RegisterPage from '../containers/register'
@@ -27,16 +28,23 @@ import AcceptDeadline from '../containers/deadline'
 import HomePage from '../containers/home';
 import ProjectsPage from '../containers/projects';
 import ProjectDetail from '../containers/projectDetail';
+import BlogsPage from '../containers/blogs';
+import AboutPage from '../containers/about';
+import ContactPage from '../containers/contactPage';
 
 const MyRouter = () => {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<PageLayout />}>
             <Route index element={<HomePage />} />
             <Route path='/projects' element={<ProjectsPage />} />
             <Route path='/project/:id' element={<ProjectDetail />} />
+            <Route path='/blogs' element={<BlogsPage />} />
+            <Route path='/about' element={<AboutPage />} />
+            <Route path='/contact' element={<ContactPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/checkemail/:token' element={<CheckEmail />} />
