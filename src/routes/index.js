@@ -25,6 +25,7 @@ import NotFound from '../containers/not-found'
 import CheckEmail from '../containers/checkEmail'
 import AcceptDeadline from '../containers/deadline'
 import HomePage from '../containers/home';
+import ProjectsPage from '../containers/projects';
 
 const MyRouter = () => {
   return (
@@ -33,6 +34,7 @@ const MyRouter = () => {
         <Routes>
           <Route path='/' element={<PageLayout />}>
             <Route index element={<HomePage />} />
+            <Route path='/projects' element={<ProjectsPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/checkemail/:token' element={<CheckEmail />} />
