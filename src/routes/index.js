@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from '../contexts/AuthContext';
 import PrivateRoute from './PrivateRoute'
 import PageLayout from '../layout'
-import ScrollToTop from '../components/ScrollToTop.jsx'
+import ScrollToTop from '../components/ScrollToTop'
 
 import LoginPage from '../containers/login'
 import RegisterPage from '../containers/register'
