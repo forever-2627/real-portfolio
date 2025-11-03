@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import { getAosType } from "../utils";
 
-const PortfolioCard = ({ source, title, description, toLink, direction, index, horizontal = false }) => {
+const PortfolioCard = ({ source, title, description, toLink, direction, index, horizontal = false, projectId }) => {
   useEffect(() => {
     // AOS should be initialized once globally, but refresh if needed
     if (typeof AOS !== 'undefined') {
@@ -39,14 +40,23 @@ const PortfolioCard = ({ source, title, description, toLink, direction, index, h
               } : {}}
             />
             <div className="portfolio-overlay d-flex align-items-center justify-content-center">
-              <a 
-                href={toLink} 
-                className="btn btn-primary portfolio-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Project
-              </a>
+              {projectId ? (
+                <Link 
+                  to={`/project/${projectId}`}
+                  className="btn btn-primary portfolio-btn"
+                >
+                  View Project
+                </Link>
+              ) : (
+                <a 
+                  href={toLink} 
+                  className="btn btn-primary portfolio-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project
+                </a>
+              )}
             </div>
           </div>
           {/* Content Section */}
@@ -57,14 +67,23 @@ const PortfolioCard = ({ source, title, description, toLink, direction, index, h
                 <p className="text-white-50 mb-3 portfolio-description">{description}</p>
               </div>
               <div className={`d-flex ${horizontal ? 'justify-content-start align-items-center' : 'justify-content-between align-items-center'}`}>
-                <a 
-                  href={toLink} 
-                  className="text-primary text-decoration-none portfolio-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn More <span className="ms-2">→</span>
-                </a>
+                {projectId ? (
+                  <Link 
+                    to={`/project/${projectId}`}
+                    className="text-primary text-decoration-none portfolio-link"
+                  >
+                    Learn More <span className="ms-2">→</span>
+                  </Link>
+                ) : (
+                  <a 
+                    href={toLink} 
+                    className="text-primary text-decoration-none portfolio-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn More <span className="ms-2">→</span>
+                  </a>
+                )}
               </div>
             </div>
           </div>

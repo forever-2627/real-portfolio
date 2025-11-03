@@ -23,6 +23,7 @@ const ProjectsPage = () => {
       category: "Web Application",
       technologies: ["React", "Node.js", "Express"],
       year: "2024",
+      projectId: "super-free-vpn",
     },
     {
       source: "img/mapanalysis.png",
@@ -34,6 +35,7 @@ const ProjectsPage = () => {
       category: "GIS & Mapping",
       technologies: ["Mapbox", "React", "Python"],
       year: "2024",
+      projectId: "mapping-software",
     },
     {
       source: "img/wetlanddetection.png",
@@ -45,6 +47,7 @@ const ProjectsPage = () => {
       category: "AI/ML",
       technologies: ["Python", "TensorFlow", "GIS"],
       year: "2023",
+      projectId: "wetland-detection",
     },
     {
       source: "img/superfreevpn.png",
@@ -56,6 +59,7 @@ const ProjectsPage = () => {
       category: "Web Application",
       technologies: ["React", "MongoDB", "Stripe"],
       year: "2024",
+      projectId: "ecommerce-platform",
     },
     {
       source: "img/mapanalysis.png",
@@ -67,6 +71,7 @@ const ProjectsPage = () => {
       category: "Data Visualization",
       technologies: ["D3.js", "React", "API Integration"],
       year: "2023",
+      projectId: "weather-dashboard",
     },
     {
       source: "img/wetlanddetection.png",
@@ -78,6 +83,7 @@ const ProjectsPage = () => {
       category: "Web Application",
       technologies: ["Vue.js", "Firebase", "WebSocket"],
       year: "2024",
+      projectId: "task-management",
     },
   ];
 
@@ -146,6 +152,7 @@ const ProjectsPage = () => {
                   direction={portfolio.direction}
                   index={index}
                   horizontal={true}
+                  projectId={portfolio.projectId}
                 />
               ))}
             </div>

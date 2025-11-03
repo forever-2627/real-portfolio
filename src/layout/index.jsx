@@ -5,9 +5,9 @@ import Footer from './footer'
 
 const PageLayout = () => {
   return (
-    <div style={{ overflowX: 'hidden', maxWidth: '100%' }}>
+    <div style={{ overflowX: 'hidden', maxWidth: '100%', backgroundColor: 'transparent', background: 'transparent' }}>
       <Header />
-      <div className='position-relative' style={{ overflowX: 'hidden', overflowY: 'visible', maxWidth: '100%', backgroundColor: 'transparent' }}>
+      <div className='position-relative' style={{ overflowX: 'hidden', overflowY: 'visible', maxWidth: '100%', backgroundColor: 'transparent', background: 'transparent' }}>
         <Outlet />
       </div>
       <Footer/>

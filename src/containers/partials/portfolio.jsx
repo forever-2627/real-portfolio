@@ -17,6 +17,7 @@ const Portfolio = () => {
         "100% free, fast, no-log VPN offering global servers, unlimited bandwidth, and strong privacy protection.",
       toLink: "#",
       direction: "left",
+      projectId: "super-free-vpn",
     },
     {
       source: "img/mapanalysis.png",
@@ -25,6 +26,7 @@ const Portfolio = () => {
         "Visual mapping software for teams to analyze, visualize, and optimize location data for better business decisions.",
       toLink: "#",
       direction: "right",
+      projectId: "mapping-software",
     },
     {
       source: "img/wetlanddetection.png",
@@ -33,6 +35,7 @@ const Portfolio = () => {
         "Wetland detection with satellite imagery uses remote sensing to identify and monitor wetland areas based on surface characteristics.",
       toLink: "#",
       direction: "right",
+      projectId: "wetland-detection",
     }
   ];
 
@@ -59,6 +62,7 @@ const Portfolio = () => {
                 toLink={portfolio.toLink}
                 direction={portfolio.direction}
                 index={index}
+                projectId={portfolio.projectId}
               />
             );
           })}
