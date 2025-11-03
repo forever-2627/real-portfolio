@@ -12,7 +12,7 @@ const Footer = () => {
                     <div className="col-lg-4 col-md-6">
                         <div className="footer-brand mb-4">
                             <h3 className="footer-logo mb-3">
-                                <span className="fw-bold" style={{ color: '#ffb6c1' }}>Yun</span>
+                                <span className="fw-bold" style={{ color: '#cd2eff' }}>Yun</span>
                                 <span className="fw-bold text-white">Soft</span>
                             </h3>
                             <p className="text-white-50 mb-4" style={{ lineHeight: '1.8' }}>

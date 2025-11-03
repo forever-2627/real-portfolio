@@ -49,7 +49,7 @@ export default function Header() {
     >
       <div className="container-lg">
         <Link className="navbar-brand fs-3 fs-md-4" to="/">
-          <span className="fw-bold" style={{ color: '#ffb6c1' }}>Yun</span>
+          <span className="fw-bold" style={{ color: '#cd2eff' }}>Yun</span>
           <span className="fw-bold text-white">Soft</span>
         </Link>
 
@@ -69,27 +69,47 @@ export default function Header() {
         <div className={`collapse navbar-collapse ${isMenu ? 'show' : ''}`} id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto text-center text-md-start">
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={() => setIsMenu(false)}>
+              <Link 
+                className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} 
+                to="/" 
+                onClick={() => setIsMenu(false)}
+              >
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/projects" onClick={() => setIsMenu(false)}>
+              <Link 
+                className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`} 
+                to="/projects" 
+                onClick={() => setIsMenu(false)}
+              >
                 Projects
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/blogs" onClick={() => setIsMenu(false)}>
+              <Link 
+                className={`nav-link ${location.pathname === '/blogs' ? 'active' : ''}`} 
+                to="/blogs" 
+                onClick={() => setIsMenu(false)}
+              >
                 Blogs
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={() => setIsMenu(false)}>
+              <Link 
+                className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} 
+                to="/about" 
+                onClick={() => setIsMenu(false)}
+              >
                 About
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact" onClick={() => setIsMenu(false)}>
+              <Link 
+                className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`} 
+                to="/contact" 
+                onClick={() => setIsMenu(false)}
+              >
                 Contact
               </Link>
             </li>

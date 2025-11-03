@@ -90,10 +90,30 @@ img.rotate:not([data-aos]),
 
 .nav-link {
 	color: white;
+	transition: color 0.3s ease;
+	position: relative;
 }
 
 .nav-link:hover {
 	color: #b449d6;
+}
+
+.nav-link.active {
+	color: #0086ff !important;
+	font-weight: 600;
+}
+
+.nav-link.active::after {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 6px;
+	height: 6px;
+	background: #0086ff;
+	border-radius: 50%;
+	box-shadow: 0 0 10px rgba(0, 134, 255, 0.8);
 }
 
 .navbar {
